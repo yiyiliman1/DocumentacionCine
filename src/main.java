@@ -4,12 +4,16 @@ public class main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
-
+        /**
+         * llamamos a los objetos
+         */
         Cine cine = new Cine("Cines Yelmo", 20, 3);
         Pelicula peli1 = new Pelicula("Shrek 2", 120);
         Pelicula peli2 = new Pelicula("Your name", 160);
         Pelicula peli3 = new Pelicula("Señor de los anillos: Retorno del rey", 240);
-
+        /**
+         * creamos un array
+         */
         Sala[] sala = new Sala[cine.getSala()];
 
         sala[0] = new Sala(1, 4, 5, peli1);
@@ -17,7 +21,9 @@ public class main {
         sala[2] = new Sala(3, 4, 5, peli3);
         boolean salir = false;
         int opcion;
-
+        /**
+         * hacemos un do-while para que entre el bucle el programa
+         */
         do {
             System.out.println("\n");
             System.out.println("<<<<<<Bienvenido/a a " + cine.getNombre() + " >>>>>>>>>");
@@ -29,13 +35,18 @@ public class main {
             opcion = sc.nextInt();
 
             switch (opcion) {
+                /**
+                 * con esta opcion llamamos al metodo VerSalayPeli
+                 */
                 case 1:
                     System.out.println("\n	<<<<<<<Cartelera>>>>>>>>>");
                     System.out.println("	Aforo maximo de las salas: " + cine.getAforo());
                     for (int i = 0; i < sala.length; i++) {
                         sala[i].VerSalayPeli();
                     }
-
+                    /**
+                     * con esta opcion llamamos al metodo Reservar
+                     */
                     break;
                 case 2:
                     System.out.println("\n");
@@ -46,6 +57,9 @@ public class main {
                     } else
                         sala[case2 - 1].Reservar();
                     break;
+                /**
+                 * con esta opcion llamamos al metodo VerButaca
+                 */
                 case 3:
                     System.out.println("\n");
                     System.out.print("Seleccione la sala: ");
@@ -56,9 +70,15 @@ public class main {
                         sala[case3 - 1].VerButaca();
                     break;
                 case 4:
+                    /**
+                     * con esta opcion salimos del programa
+                     */
                     System.out.println("Fin del programa");
                     salir = true;
                     break;
+                /**
+                 * si introducimos una opcion que no este dentro, nos saldra este mensaje
+                 */
                 default:
                     System.out.println("Introduce una opcion correcta [1, 2 , 3 o 4]");
                     break;
